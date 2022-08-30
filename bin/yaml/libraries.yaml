@@ -10,6 +10,22 @@ libraries:
       - 9.1.0
       type: github
   c++:
+    halide:
+      type: github
+      repo: halide/Halide
+      target_prefix: v
+      targets:
+      - '14.0.0'
+      depends:
+      - libraries/c++/llvm 14.0.0
+      build_type: cmake
+      extra_cmake_arg:
+      - -DWITH_TESTS=OFF
+      - -DWITH_PYTHON_BINDINGS=OFF
+      - -DWITH_TUTORIALS=OFF
+      - -DWITH_UTILS=OFF
+      lib_type: shared
+      sharedliblink: Halide
     benchmark:
       build_type: cmake
       extra_cmake_arg:
